@@ -12,11 +12,11 @@ public interface FormulaComponentService {
 
   Set<FormulaComponentDto> getAll();
   
-  FormulaComponentDto get(Long id);
+  FormulaComponentDto get(Long formulaId, Long componentId);
   
   FormulaComponentDto post(FormulaComponentDto formulaComponentDto);
   
   FormulaComponentDto put(FormulaComponentDto formulaComponentDto);
   
-  Boolean delete(Long id);
+  Boolean delete(Long formulaId, Long componentId);
 }

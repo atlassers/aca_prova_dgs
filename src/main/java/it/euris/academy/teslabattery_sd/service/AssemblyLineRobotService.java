@@ -12,11 +12,11 @@ public interface AssemblyLineRobotService {
 
   Set<AssemblyLineRobotDto> getAll();
   
-  AssemblyLineRobotDto get(Long id);
+  AssemblyLineRobotDto get(Long assemblyLineId, Long robotId);
   
   AssemblyLineRobotDto post(AssemblyLineRobotDto assemblyLineRobotDto);
   
   AssemblyLineRobotDto put(AssemblyLineRobotDto assemblyLineRobotDto);
   
-  Boolean delete(Long id);
+  Boolean delete(Long assemblyLineId, Long robotId);
 }
