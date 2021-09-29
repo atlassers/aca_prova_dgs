@@ -32,7 +32,6 @@ import it.euris.academy.teslabattery_sd.utils.TestSupport;
 @SpringBootTest
 public class RobotControllerTest {
 
-
   @MockBean
   RobotRepository robotRepository;
   
