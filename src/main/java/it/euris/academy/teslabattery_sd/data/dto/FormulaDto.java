@@ -6,6 +6,7 @@
 package it.euris.academy.teslabattery_sd.data.dto;
 
 import it.euris.academy.teslabattery_sd.data.archetype.Dto;
+import it.euris.academy.teslabattery_sd.data.model.AssemblyLine;
 import it.euris.academy.teslabattery_sd.data.model.Formula;
 import it.euris.academy.teslabattery_sd.utils.UT;
 import lombok.AllArgsConstructor;
@@ -26,7 +27,8 @@ public class FormulaDto implements Dto{
 
   @Override
   public Formula toModel() {
-    Formula result = Formula.builder().id(UT.toLong(id)).build();
+    Formula result = Formula.builder().id(UT.toLong(id)).assemblyLineId(AssemblyLine.builder().id(UT.toLong(assemblyLineId)).build())
+        .build();
     
     if (deleted == Boolean.TRUE) {
       result.setDeleted(deleted);

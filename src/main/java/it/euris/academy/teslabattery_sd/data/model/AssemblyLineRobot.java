@@ -17,6 +17,7 @@ import org.hibernate.annotations.Where;
 import it.euris.academy.teslabattery_sd.data.archetype.Model;
 import it.euris.academy.teslabattery_sd.data.dto.AssemblyLineRobotDto;
 import it.euris.academy.teslabattery_sd.data.model.key.AssemblyLineRobotKey;
+import it.euris.academy.teslabattery_sd.utils.UT;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -51,7 +52,10 @@ public class AssemblyLineRobot implements Model{
   
   @Override
   public AssemblyLineRobotDto toDto() {
-    AssemblyLineRobotDto result = AssemblyLineRobotDto.builder().assemblyLineId(assemblyLineId.getId().toString()).robotId(robotId.getId().toString()).build();
+    AssemblyLineRobotDto result = AssemblyLineRobotDto.builder()
+        .assemblyLineId(UT.numberToString(assemblyLineId.getId()))
+        .robotId(UT.numberToString(robotId.getId()))
+        .build();
     
     if (deleted == Boolean.TRUE) {
       result.setDeleted(deleted);

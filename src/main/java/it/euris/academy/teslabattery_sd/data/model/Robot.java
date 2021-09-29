@@ -10,6 +10,8 @@ import java.util.Set;
 import java.util.HashSet;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,6 +44,7 @@ public class Robot implements Model {
   private Long id;
   
   @Column(name = "task")
+  @Enumerated(value = EnumType.STRING)
   private Task task;
   
   @Column(name = "positional_order")

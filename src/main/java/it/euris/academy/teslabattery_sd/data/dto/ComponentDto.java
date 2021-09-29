@@ -27,7 +27,7 @@ public class ComponentDto implements Dto {
 
   @Override
   public Component toModel() {
-    Component result = Component.builder().id(UT.toLong(id)).hazardous(hazardous).build();
+    Component result = Component.builder().id(UT.toLong(id)).hazardous(hazardous).name(name).build();
 
     if (deleted == Boolean.TRUE) {
       result.setDeleted(deleted);

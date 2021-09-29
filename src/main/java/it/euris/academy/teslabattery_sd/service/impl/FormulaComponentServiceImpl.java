@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import it.euris.academy.teslabattery_sd.data.dto.FormulaComponentDto;
 import it.euris.academy.teslabattery_sd.data.model.FormulaComponent;
 import it.euris.academy.teslabattery_sd.data.model.key.FormulaComponentKey;
-import it.euris.academy.teslabattery_sd.exception.IdMustBeNullException;
 import it.euris.academy.teslabattery_sd.exception.IdMustNotBeNullException;
 import it.euris.academy.teslabattery_sd.repository.FormulaComponentRepository;
 import it.euris.academy.teslabattery_sd.service.FormulaComponentService;
@@ -44,12 +43,13 @@ public class FormulaComponentServiceImpl implements FormulaComponentService{
   }
 
   @Override
-  public FormulaComponentDto post(FormulaComponentDto formulaComponentDto) {
-    if(formulaComponentDto.getFormulaId() != null)
-      throw new IdMustBeNullException();
+  public FormulaComponentDto post(FormulaComponentDto formulaComponentDto) { 
+    if(formulaComponentDto.getFormulaId() == null)
+      throw new IdMustNotBeNullException();
     
-    if(formulaComponentDto.getComponentId() != null)
-      throw new IdMustBeNullException();
+    if(formulaComponentDto.getComponentId() == null)
+      throw new IdMustNotBeNullException();
+    
     
     return formulaComponentRepository.save(formulaComponentDto.toModel()).toDto();
   }

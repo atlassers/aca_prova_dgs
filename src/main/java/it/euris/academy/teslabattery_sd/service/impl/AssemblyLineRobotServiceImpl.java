@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import it.euris.academy.teslabattery_sd.data.dto.AssemblyLineRobotDto;
 import it.euris.academy.teslabattery_sd.data.model.AssemblyLineRobot;
 import it.euris.academy.teslabattery_sd.data.model.key.AssemblyLineRobotKey;
-import it.euris.academy.teslabattery_sd.exception.IdMustBeNullException;
 import it.euris.academy.teslabattery_sd.exception.IdMustNotBeNullException;
 import it.euris.academy.teslabattery_sd.repository.AssemblyLineRobotRepository;
 import it.euris.academy.teslabattery_sd.service.AssemblyLineRobotService;
@@ -43,12 +42,12 @@ public class AssemblyLineRobotServiceImpl implements AssemblyLineRobotService{
   }
 
   @Override
-  public AssemblyLineRobotDto post(AssemblyLineRobotDto assemblyLineRobotDto) {
-    if(assemblyLineRobotDto.getAssemblyLineId() != null)
-      throw new IdMustBeNullException();
+  public AssemblyLineRobotDto post(AssemblyLineRobotDto assemblyLineRobotDto) {  
+    if(assemblyLineRobotDto.getAssemblyLineId() == null)
+      throw new IdMustNotBeNullException();
     
-    if(assemblyLineRobotDto.getRobotId() != null)
-      throw new IdMustBeNullException();
+    if(assemblyLineRobotDto.getRobotId() == null)
+      throw new IdMustNotBeNullException();
     
     return assemblyLineRobotRepository.save(assemblyLineRobotDto.toModel()).toDto();
   }

@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/robots/**").hasRole("supervisor")
         .antMatchers("/assembly-line-robots/**").hasRole("supervisor")
         .antMatchers("/formula-components/**").hasRole("supervisor")
-        .and() //TODO metto anche qui il blocco delle delete?
+        .and()
         .httpBasic();
   }
 

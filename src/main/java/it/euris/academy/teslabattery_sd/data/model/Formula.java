@@ -55,7 +55,7 @@ public class Formula implements Model{
   
   @Override
   public FormulaDto toDto() {
-    FormulaDto result = FormulaDto.builder().id(UT.numberToString(id)).build();
+    FormulaDto result = FormulaDto.builder().id(UT.numberToString(id)).assemblyLineId(UT.numberToString(assemblyLineId.getId())).build();
     
     if (deleted == Boolean.TRUE) {
       result.setDeleted(deleted);

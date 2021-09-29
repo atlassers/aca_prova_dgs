@@ -8,6 +8,8 @@ package it.euris.academy.teslabattery_sd.data.model;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
@@ -51,6 +53,7 @@ public class FormulaComponent implements Model{
   private Double componentQuantity;
   
   @Column(name="component_measure")
+  @Enumerated(value = EnumType.STRING)
   private Measure componentMeasure;
   
   @Column(name = "deleted")

@@ -8,6 +8,8 @@ package it.euris.academy.teslabattery_sd.data.model;
 import java.time.Instant;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.academy.teslabattery_sd.data.archetype.Model;
 import it.euris.academy.teslabattery_sd.data.dto.ProductionCycleDto;
 import it.euris.academy.teslabattery_sd.data.enums.Status;
@@ -42,12 +45,14 @@ public class ProductionCycle implements Model{
   
   @ManyToOne
   @JoinColumn(name = "assembly_line_id")
+  @JsonIgnore
   private AssemblyLine assemblyLineId;
   
   @Column(name = "date_start")
   private Instant dateStart;
   
   @Column(name = "status")
+  @Enumerated(value = EnumType.STRING)
   private Status status;
   
   @Column(name = "date_last_status_change")
@@ -62,9 +67,13 @@ public class ProductionCycle implements Model{
 
   @Override
   public ProductionCycleDto toDto() {
-    ProductionCycleDto result = ProductionCycleDto.builder().id(UT.numberToString(id)).dateStart(UT.fromInstant(dateStart))
-        .status(UT.getStatus(status)).dateLastStatusChange(UT.fromInstant(dateLastStatusChange))
-        .dateEnd(UT.fromInstant(dateEnd)).build();
+    ProductionCycleDto result = ProductionCycleDto.builder()
+        .id(UT.numberToString(id))
+        .dateStart(UT.fromInstant(dateStart))
+        .status(UT.getStatus(status))
+        .dateLastStatusChange(UT.fromInstant(dateLastStatusChange))
+        .dateEnd(UT.fromInstant(dateEnd))
+        .build();
     
     if (deleted == Boolean.TRUE) {
       result.setDeleted(deleted);
