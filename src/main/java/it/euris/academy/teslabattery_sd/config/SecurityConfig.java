@@ -20,7 +20,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http.cors().and().csrf().disable().authorizeRequests()
         .antMatchers("/actuator/*", "/swagger-ui.html**", "/webjars/**", "/v3/**").authenticated()
-        .antMatchers("/component/**").hasRole("supervisor") //TODO sistemo l'indirizzo delle risorse e ne aggiungo le altre
+        .antMatchers("/assembly-lines/**").hasRole("supervisor")
+        .antMatchers("/components/**").hasRole("supervisor")
+        .antMatchers("/formulae/**").hasRole("supervisor")
+        .antMatchers("/production-cycles/**").hasRole("supervisor")
+        .antMatchers("/robots/**").hasRole("supervisor")
+        .antMatchers("/assembly-line-robots/**").hasRole("supervisor")
+        .antMatchers("/formula-components/**").hasRole("supervisor")
         .and() //TODO metto anche qui il blocco delle delete?
         .httpBasic();
   }

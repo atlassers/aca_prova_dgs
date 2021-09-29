@@ -15,38 +15,38 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import it.euris.academy.teslabattery_sd.data.dto.AssemblyLineDto;
-import it.euris.academy.teslabattery_sd.service.AssemblyLineService;
+import it.euris.academy.teslabattery_sd.data.dto.FormulaDto;
+import it.euris.academy.teslabattery_sd.service.FormulaService;
 
 @RestController
-@RequestMapping("/assembly-lines")
-public class AssemblyLineController {
+@RequestMapping("/formulae")
+public class FormulaController {
   
   @Autowired
-  AssemblyLineService assemblyLineService;
+  FormulaService formulaService;
   
   @GetMapping("/v1")
-  public Set<AssemblyLineDto> getAll() {
-    return assemblyLineService.getAll();
+  public Set<FormulaDto> getAll() {
+    return formulaService.getAll();
   }
   
   @GetMapping("/v1/{id}")
-  public AssemblyLineDto get(@PathVariable("id") Long id) {
-    return assemblyLineService.get(id);
+  public FormulaDto get(@PathVariable("id") Long id) {
+    return formulaService.get(id);
   }
   
   @PostMapping("/v1")
-  public AssemblyLineDto post(@RequestBody AssemblyLineDto assemblyLineDto) {
-    return assemblyLineService.post(assemblyLineDto);
+  public FormulaDto post(@RequestBody FormulaDto formulaDto) {
+    return formulaService.post(formulaDto);
   }
   
   @PutMapping("/v1")
-  public AssemblyLineDto put(@RequestBody AssemblyLineDto assemblyLineDto) {
-    return assemblyLineService.put(assemblyLineDto);
+  public FormulaDto put(@RequestBody FormulaDto formulaDto) {
+    return formulaService.put(formulaDto);
   }
   
   @DeleteMapping("/v1/{id}")
   public Boolean delete(@PathVariable("id") Long id) {
-    return assemblyLineService.delete(id);
+    return formulaService.delete(id);
   }
 }

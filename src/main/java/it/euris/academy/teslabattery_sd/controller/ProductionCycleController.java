@@ -15,38 +15,38 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import it.euris.academy.teslabattery_sd.data.dto.AssemblyLineDto;
-import it.euris.academy.teslabattery_sd.service.AssemblyLineService;
+import it.euris.academy.teslabattery_sd.data.dto.ProductionCycleDto;
+import it.euris.academy.teslabattery_sd.service.ProductionCycleService;
 
 @RestController
-@RequestMapping("/assembly-lines")
-public class AssemblyLineController {
+@RequestMapping("/production-cycles")
+public class ProductionCycleController {
   
   @Autowired
-  AssemblyLineService assemblyLineService;
+  ProductionCycleService productionCycleService;
   
   @GetMapping("/v1")
-  public Set<AssemblyLineDto> getAll() {
-    return assemblyLineService.getAll();
+  public Set<ProductionCycleDto> getAll() {
+    return productionCycleService.getAll();
   }
   
   @GetMapping("/v1/{id}")
-  public AssemblyLineDto get(@PathVariable("id") Long id) {
-    return assemblyLineService.get(id);
+  public ProductionCycleDto get(@PathVariable("id") Long id) {
+    return productionCycleService.get(id);
   }
   
   @PostMapping("/v1")
-  public AssemblyLineDto post(@RequestBody AssemblyLineDto assemblyLineDto) {
-    return assemblyLineService.post(assemblyLineDto);
+  public ProductionCycleDto post(@RequestBody ProductionCycleDto productionCycleDto) {
+    return productionCycleService.post(productionCycleDto);
   }
   
   @PutMapping("/v1")
-  public AssemblyLineDto put(@RequestBody AssemblyLineDto assemblyLineDto) {
-    return assemblyLineService.put(assemblyLineDto);
+  public ProductionCycleDto put(@RequestBody ProductionCycleDto productionCycleDto) {
+    return productionCycleService.put(productionCycleDto);
   }
   
   @DeleteMapping("/v1/{id}")
   public Boolean delete(@PathVariable("id") Long id) {
-    return assemblyLineService.delete(id);
+    return productionCycleService.delete(id);
   }
 }
