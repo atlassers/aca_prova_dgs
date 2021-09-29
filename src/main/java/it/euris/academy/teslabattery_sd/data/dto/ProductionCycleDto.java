@@ -7,6 +7,7 @@ package it.euris.academy.teslabattery_sd.data.dto;
 
 import it.euris.academy.teslabattery_sd.data.archetype.Dto;
 import it.euris.academy.teslabattery_sd.data.model.ProductionCycle;
+import it.euris.academy.teslabattery_sd.utils.UT;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,11 +20,24 @@ import lombok.NoArgsConstructor;
 public class ProductionCycleDto implements Dto{
   
   private String id;
+  private String dateStart;
+  private String status;
+  private String dateLastStatusChange;
+  private String dateEnd;
+  @Builder.Default
+  private Boolean deleted = false;
 
   @Override
   public ProductionCycle toModel() {
-    // TODO Auto-generated method stub
-    return null;
+    ProductionCycle result = ProductionCycle.builder().id(UT.toLong(id)).dateStart(UT.toInstant(dateStart))
+        .status(UT.getStatus(status)).dateLastStatusChange(UT.toInstant(dateLastStatusChange))
+        .dateEnd(UT.toInstant(dateEnd)).build();
+    
+    if (deleted == Boolean.TRUE) {
+      result.setDeleted(deleted);
+    }
+    
+    return result;
   }
 
 }

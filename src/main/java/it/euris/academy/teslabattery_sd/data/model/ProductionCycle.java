@@ -19,6 +19,7 @@ import org.hibernate.annotations.Where;
 import it.euris.academy.teslabattery_sd.data.archetype.Model;
 import it.euris.academy.teslabattery_sd.data.dto.ProductionCycleDto;
 import it.euris.academy.teslabattery_sd.data.enums.Status;
+import it.euris.academy.teslabattery_sd.utils.UT;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -54,11 +55,22 @@ public class ProductionCycle implements Model{
   
   @Column(name = "date_end")
   private Instant dateEnd;
+  
+  @Column(name = "deleted")
+  @Builder.Default
+  private Boolean deleted = false;
 
   @Override
   public ProductionCycleDto toDto() {
-    // TODO Auto-generated method stub
-    return null;
+    ProductionCycleDto result = ProductionCycleDto.builder().id(UT.numberToString(id)).dateStart(UT.fromInstant(dateStart))
+        .status(UT.getStatus(status)).dateLastStatusChange(UT.fromInstant(dateLastStatusChange))
+        .dateEnd(UT.fromInstant(dateEnd)).build();
+    
+    if (deleted == Boolean.TRUE) {
+      result.setDeleted(deleted);
+    }
+    
+    return result;
   }
 
 }

@@ -5,9 +5,7 @@
 
 package it.euris.academy.teslabattery_sd.data.dto;
 
-import java.util.Map;
 import it.euris.academy.teslabattery_sd.data.archetype.Dto;
-import it.euris.academy.teslabattery_sd.data.model.AssemblyLine;
 import it.euris.academy.teslabattery_sd.data.model.Formula;
 import it.euris.academy.teslabattery_sd.utils.UT;
 import lombok.AllArgsConstructor;
@@ -23,9 +21,6 @@ public class FormulaDto implements Dto{
   
   private String id;
   private String assemblyLineId;
-  private Map<String, String> components;
-  private Map<String, String> componentQuantity;
-  private Map<String, String> componentMeasure;
   @Builder.Default
   private Boolean deleted = false;
 

@@ -52,13 +52,14 @@ public class AssemblyLine implements Model{
   
   @OneToMany(mappedBy = "assemblyLineId")
   @Builder.Default
-  private Set<Robot> robots = new HashSet<Robot>();
+  private Set<AssemblyLineRobot> robots = new HashSet<AssemblyLineRobot>();
   
   @OneToOne(mappedBy = "assemblyLineId")
   private Formula formula;
   
   @OneToMany(mappedBy = "assemblyLineId")
-  private ProductionCycle productionCycle;
+  @Builder.Default
+  private Set<ProductionCycle> productionCycle = new HashSet<ProductionCycle>();
 
   @Override
   public AssemblyLineDto toDto() {

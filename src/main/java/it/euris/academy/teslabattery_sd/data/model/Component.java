@@ -5,11 +5,14 @@
 
 package it.euris.academy.teslabattery_sd.data.model;
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
@@ -45,6 +48,10 @@ public class Component implements Model {
   @Column(name = "deleted")
   @Builder.Default
   private Boolean deleted = false;
+  
+  @OneToMany (mappedBy = "componentId")
+  @Builder.Default
+  private Set<FormulaComponent> formulae = new HashSet<FormulaComponent>();
 
 
   @Override

@@ -6,13 +6,14 @@
 package it.euris.academy.teslabattery_sd.data.model;
 
 
+import java.util.Set;
+import java.util.HashSet;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
@@ -53,9 +54,9 @@ public class Robot implements Model {
   @Builder.Default
   private Boolean deleted = false;
   
-  @ManyToOne
-  @JoinColumn(name = "assembly_line_id")
-  private AssemblyLine assemblyLineId;
+  @OneToMany(mappedBy = "robotId")
+  @Builder.Default
+  private Set<AssemblyLineRobot> assemblyLines = new HashSet<AssemblyLineRobot>();
 
   @Override
   public RobotDto toDto() {

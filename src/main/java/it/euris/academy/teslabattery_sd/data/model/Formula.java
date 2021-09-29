@@ -5,21 +5,21 @@
 
 package it.euris.academy.teslabattery_sd.data.model;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 import it.euris.academy.teslabattery_sd.data.archetype.Model;
 import it.euris.academy.teslabattery_sd.data.dto.FormulaDto;
-import it.euris.academy.teslabattery_sd.data.enums.Measure;
 import it.euris.academy.teslabattery_sd.utils.UT;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -45,17 +45,9 @@ public class Formula implements Model{
   @JoinColumn(name= "assembly_line_id")
   private AssemblyLine assemblyLineId;
   
-  @Column
+  @OneToMany(mappedBy = "formulaId")
   @Builder.Default
-  private Map<Long, Component> components = new HashMap<>();
-  
-  @Column(name="component_quantity")
-  @Builder.Default
-  private Map<Long, Double> componentQuantity = new HashMap<>();
-  
-  @Column(name = "component_measure")
-  @Builder.Default
-  private Map<Long,Measure> componentMeasure = new HashMap<>();
+  private Set<FormulaComponent> components = new HashSet<FormulaComponent>();
   
   @Column(name = "deleted")
   @Builder.Default
