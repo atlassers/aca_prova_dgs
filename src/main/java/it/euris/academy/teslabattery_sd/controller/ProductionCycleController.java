@@ -5,6 +5,7 @@
 
 package it.euris.academy.teslabattery_sd.controller;
 
+import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,7 +44,7 @@ public class ProductionCycleController {
   }
   
   @GetMapping("/v1/wasted-components-this-month")
-  public WastedComponentsThisMonthStatisticsProjection getWastedComponentsThisMonthStatistics() {
+  public List<WastedComponentsThisMonthStatisticsProjection> getWastedComponentsThisMonthStatistics() {
     return productionCycleService.getWastedComponentsThisMonthStatistics();
   }
   

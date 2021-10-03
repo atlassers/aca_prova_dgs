@@ -5,6 +5,7 @@
 
 package it.euris.academy.teslabattery_sd.repository;
 
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import it.euris.academy.teslabattery_sd.data.model.ProductionCycle;
@@ -33,5 +34,5 @@ public interface ProductionCycleRepository extends JpaRepository<ProductionCycle
       + "    JOIN formula_component fc ON fc.formula_id = f.id "
       + "    JOIN component c ON c.id = fc.component_id "
       + "WHERE p.status='FAILED' AND MONTH(p.date_end)=10", nativeQuery = true)
-  WastedComponentsThisMonthStatisticsProjection getWastedComponentsThisMonthStatistics();
+  List<WastedComponentsThisMonthStatisticsProjection> getWastedComponentsThisMonthStatistics();
 }

@@ -6,6 +6,7 @@
 package it.euris.academy.teslabattery_sd.service.impl;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -87,7 +88,7 @@ public class ProductionCycleServiceImpl implements ProductionCycleService{
   }
 
   @Override
-  public WastedComponentsThisMonthStatisticsProjection getWastedComponentsThisMonthStatistics() {
+  public List<WastedComponentsThisMonthStatisticsProjection> getWastedComponentsThisMonthStatistics() {
     return productionCycleRepository.getWastedComponentsThisMonthStatistics();
   }
 

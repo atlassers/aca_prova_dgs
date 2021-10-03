@@ -5,6 +5,7 @@
 
 package it.euris.academy.teslabattery_sd.service;
 
+import java.util.List;
 import java.util.Set;
 import it.euris.academy.teslabattery_sd.data.dto.ProductionCycleDto;
 import it.euris.academy.teslabattery_sd.repository.projection.CycleStatisticsProjection;
@@ -24,5 +25,5 @@ public interface ProductionCycleService {
   
   CycleStatisticsProjection getNumberCyclesStatistics();
   
-  WastedComponentsThisMonthStatisticsProjection getWastedComponentsThisMonthStatistics();
+  List<WastedComponentsThisMonthStatisticsProjection> getWastedComponentsThisMonthStatistics();
 }
