@@ -12,4 +12,6 @@ public interface CycleStatisticsProjection {
   Integer getMonthlyFailedCycles();
   
   Integer getMonthlyTotalCycles();
+  
+  Double getCycleSuccessPercentage();
 }
