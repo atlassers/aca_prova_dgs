@@ -39,7 +39,7 @@ public class ProductionCycleController {
   }
   
   @GetMapping("/v1/number-cycles-statistics")
-  public CycleStatisticsProjection getNumberCyclesStatistics() {
+  public List<CycleStatisticsProjection> getNumberCyclesStatistics() {
     return productionCycleService.getNumberCyclesStatistics();
   }
   

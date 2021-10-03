@@ -83,7 +83,7 @@ public class ProductionCycleServiceImpl implements ProductionCycleService{
   }
 
   @Override
-  public CycleStatisticsProjection getNumberCyclesStatistics() {
+  public List<CycleStatisticsProjection> getNumberCyclesStatistics() {
     return productionCycleRepository.getNumberCyclesStatistics();
   }
 

@@ -23,7 +23,7 @@ public interface ProductionCycleService {
   
   Boolean delete(Long id);
   
-  CycleStatisticsProjection getNumberCyclesStatistics();
+  List<CycleStatisticsProjection> getNumberCyclesStatistics();
   
   List<WastedComponentsThisMonthStatisticsProjection> getWastedComponentsThisMonthStatistics();
 }
