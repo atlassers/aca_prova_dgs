@@ -7,6 +7,7 @@ package it.euris.academy.teslabattery_sd.data.model;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -56,6 +57,11 @@ public class Formula implements Model{
   @Override
   public FormulaDto toDto() {
     FormulaDto result = FormulaDto.builder().id(UT.numberToString(id)).assemblyLineId(UT.numberToString(assemblyLineId.getId())).build();
+    
+    if(components != null) {
+     result.getComponents().addAll(
+         this.getComponents().stream().map(FormulaComponent::toDto).collect(Collectors.toSet()));
+    }
     
     if (deleted == Boolean.TRUE) {
       result.setDeleted(deleted);

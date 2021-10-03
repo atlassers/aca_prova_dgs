@@ -75,6 +75,10 @@ public class ProductionCycle implements Model{
         .dateEnd(UT.fromInstant(dateEnd))
         .build();
     
+    if(assemblyLineId != null) {
+      result.setAssemblyLineId(assemblyLineId.getId());
+    }
+    
     if (deleted == Boolean.TRUE) {
       result.setDeleted(deleted);
     }

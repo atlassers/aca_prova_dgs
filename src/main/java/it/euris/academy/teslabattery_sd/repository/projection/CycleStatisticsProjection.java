@@ -6,6 +6,8 @@
 package it.euris.academy.teslabattery_sd.repository.projection;
 
 public interface CycleStatisticsProjection {
+  
+  Integer getMonth();
 
   Integer getMonthlyCompletedCycles();
   

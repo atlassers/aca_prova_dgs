@@ -18,6 +18,7 @@ import it.euris.academy.teslabattery_sd.exception.IdMustBeNullException;
 import it.euris.academy.teslabattery_sd.exception.IdMustNotBeNullException;
 import it.euris.academy.teslabattery_sd.repository.ProductionCycleRepository;
 import it.euris.academy.teslabattery_sd.repository.projection.CycleStatisticsProjection;
+import it.euris.academy.teslabattery_sd.repository.projection.WastedComponentsThisMonthStatisticsProjection;
 import it.euris.academy.teslabattery_sd.service.ProductionCycleService;
 import it.euris.academy.teslabattery_sd.utils.UT;
 
@@ -83,6 +84,11 @@ public class ProductionCycleServiceImpl implements ProductionCycleService{
   @Override
   public CycleStatisticsProjection getNumberCyclesStatistics() {
     return productionCycleRepository.getNumberCyclesStatistics();
+  }
+
+  @Override
+  public WastedComponentsThisMonthStatisticsProjection getWastedComponentsThisMonthStatistics() {
+    return productionCycleRepository.getWastedComponentsThisMonthStatistics();
   }
 
 }

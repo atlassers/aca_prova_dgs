@@ -7,6 +7,7 @@ package it.euris.academy.teslabattery_sd.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import it.euris.academy.teslabattery_sd.data.archetype.Dto;
+import it.euris.academy.teslabattery_sd.data.model.AssemblyLine;
 import it.euris.academy.teslabattery_sd.data.model.ProductionCycle;
 import it.euris.academy.teslabattery_sd.utils.UT;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,7 @@ public class ProductionCycleDto implements Dto{
   private String dateEnd;
   @Builder.Default
   private Boolean deleted = false;
+  private Long assemblyLineId;
 
   @Override
   public ProductionCycle toModel() {
@@ -38,6 +40,12 @@ public class ProductionCycleDto implements Dto{
         .dateLastStatusChange(UT.toInstant(dateLastStatusChange))
         .dateEnd(UT.toInstant(dateEnd))
         .build();
+    
+    
+    if(assemblyLineId != null) {
+      result.setAssemblyLineId(AssemblyLine.builder().id(assemblyLineId).build());
+    }
+    
     
     if (deleted == Boolean.TRUE) {
       result.setDeleted(deleted);
