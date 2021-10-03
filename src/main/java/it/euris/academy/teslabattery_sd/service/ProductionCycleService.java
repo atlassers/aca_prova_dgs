@@ -7,6 +7,7 @@ package it.euris.academy.teslabattery_sd.service;
 
 import java.util.Set;
 import it.euris.academy.teslabattery_sd.data.dto.ProductionCycleDto;
+import it.euris.academy.teslabattery_sd.repository.projection.CycleStatisticsProjection;
 
 public interface ProductionCycleService {
 
@@ -19,4 +20,6 @@ public interface ProductionCycleService {
   ProductionCycleDto put(ProductionCycleDto productionCycleDto);
   
   Boolean delete(Long id);
+  
+  CycleStatisticsProjection getNumberCyclesStatistics();
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import it.euris.academy.teslabattery_sd.data.dto.ProductionCycleDto;
+import it.euris.academy.teslabattery_sd.repository.projection.CycleStatisticsProjection;
 import it.euris.academy.teslabattery_sd.service.ProductionCycleService;
 
 @RestController
@@ -33,6 +34,11 @@ public class ProductionCycleController {
   @GetMapping("/v1/{id}")
   public ProductionCycleDto get(@PathVariable("id") Long id) {
     return productionCycleService.get(id);
+  }
+  
+  @GetMapping("/v1/NumberCyclesStatistics")
+  public CycleStatisticsProjection getNumberCyclesStatistics() {
+    return productionCycleService.getNumberCyclesStatistics();
   }
   
   @PostMapping("/v1")
