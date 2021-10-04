@@ -23,8 +23,17 @@ $(document).ready(function () {
         })
 
         if(id){
+            var formData = JSON.stringify({
+                'id': id,
+                'status': status,
+                'assemblyLineId': assemblyLineId
+            })
             ProductionCycleService.put(formData);
         } else {
+            var formData = JSON.stringify({
+                'status': status,
+                'assemblyLineId': assemblyLineId
+            })
             ProductionCycleService.post(formData);
         }
     });

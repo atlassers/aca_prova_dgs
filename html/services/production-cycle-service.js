@@ -18,8 +18,8 @@ class ProductionCycleService {
                         + '<td>' + val.id + '</td>'
                         + '<td>' + val.status + '</td>'
                         + '<td>' + val.assemblyLineId + '</td>'
-                        + '<td><button id="btnDetail-' + val.id + '" class="btn btn-warning" onclick="StudentService.detail(' + val.id + ')">detail</button></td>'
-                        + '<td><button id="btnDelete-' + val.id + '" class="btn btn-danger" onclick="StudentService.delete(' + val.id + ')">delete</button></td>'
+                        + '<td><button id="btnDetail-' + val.id + '" class="btn btn-warning" onclick="ProductionCycleService.detail(' + val.id + ')">detail</button></td>'
+                        + '<td><button id="btnDelete-' + val.id + '" class="btn btn-danger" onclick="ProductionCycleService.delete(' + val.id + ')">delete</button></td>'
                         + '</tr>';
                 });
                 content += '</table>';
