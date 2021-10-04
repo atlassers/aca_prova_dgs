@@ -1,3 +1,13 @@
 .production-fill {
     width = 100%;
 }
+
+.production-center {
+    width: min-content;
+    margin: 0 auto;
+}
+
+.saveForm {
+    margin-top: 25px;
+    display: none;
+}

@@ -13,16 +13,19 @@
         <script src="script/production-cycle.js"></script>
 
     </head>
-    <body>
+    <body class="production-center">
         <div class="card text-center">
             <img class="card-img-top" src="https://loghi-famosi.com/wp-content/uploads/2021/01/Tesla-Logo.png" alt="tesla logo img">
             <div class="card-body">
-                <h2 class="text-danger card-text text-center">Tesla Prduction Cycles</h2>
+                <h2 class="text-danger card-text text-center">Tesla Production Cycles</h2>
                 <button id="btnShow" class="btn btn-primary">show</button>
                 <button id="btnAdd" class="btn btn-primary">add</button>
-                <div id="tlbProductionCycle" class="table"></div>
+                <div id="tblProductionCycle" class="table"></div>
             </div>
             <form id="saveForm" class="saveForm">
+                <div class="form-group">
+                    <label id= "addOrUpdateLabel">INSERT ID TO MODIFY AN EXISTING RECORD, DO NOT INSERT ID TO ADD A NEW RECORD</label>
+                 </div>
                 <div class="form-group">
                     <input id="productionCycleId" class="form-control" type="text" name="productionCycleId" placeholder="Production Cycle id">
                 </div>

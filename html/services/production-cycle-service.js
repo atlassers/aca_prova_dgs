@@ -26,9 +26,9 @@ class ProductionCycleService {
 
                 $('#saveForm').trigger('reset');
                 $('#saveForm').hide();
-                $('#tlbProductionCycle').empty();
-                $('#tlbProductionCycle').append(content);
-                $('#tlbProductionCycle').show();
+                $('#tblProductionCycle').empty();
+                $('#tblProductionCycle').append(content);
+                $('#tblProductionCycle').show();
             });
     }
 
@@ -70,8 +70,8 @@ class ProductionCycleService {
                 document.getElementById('status').value = productionCycleDto.status;
                 document.getElementById('assemblyLineId').value = productionCycleDto.assemblyLineId;
 
-                $('#tlbProductionCycle').empty();
-                $('#tlbProductionCycle').hide();
+                $('#tblProductionCycle').empty();
+                $('#tblProductionCycle').hide();
                 $("#saveForm").show();
             });
     }

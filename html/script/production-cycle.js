@@ -3,9 +3,9 @@ $(document).ready(function () {
         ProductionCycleService.getAll();
     });
 
-    $('btnAdd').click(function (){
-        $('#tlbProductionCycle').empty();
-        $('#tlbProductionCycle').hide();
+    $('#btnAdd').click(function (){
+        $('#tblProductionCycle').empty();
+        $('#tblProductionCycle').hide();
         $("#saveForm").show();
     });
 
